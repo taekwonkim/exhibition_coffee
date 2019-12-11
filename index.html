@@ -1,0 +1,1432 @@
+<div id="dim" class="dim">
+	<div class="loader">
+		<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+		<path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+			<animateTransform attributeType="xml"
+			attributeName="transform"
+			type="rotate"
+			from="0 25 25"
+			to="360 25 25"
+			dur="0.6s"
+			repeatCount="indefinite"/>
+			</path>
+		</svg>
+	</div>
+</div>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,800|Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+<style>
+	.dim {position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); z-index: 1000;}
+	.dim .loader{ height: 100px; width: 100px; text-align: center; display: inline-block; vertical-align: top; position: fixed; top: 50vh; left: 50%; margin: -50px 0 0 -50px; }
+	.dim svg path, .dim svg rect{ fill: #FF6700; }
+	.wrap_goHeader {position: relative; height: 100px;}
+	.area_goHeader {top: 0; width: 100%; height: 100px; transition: top 0.2s ease-in-out; z-index: 1000; background-color: #fff; text-align: center; font-weight: bold; padding: 0.6rem 0; box-sizing: border-box;}
+	.area_goHeader.fixed {position: fixed;}
+	.area_goHeader ul {display: flex; justify-content: space-between;}
+	.area_goHeader ul li {width: 100%; padding: 0.6rem 0;}
+	.area_goHeader ul li button {font-size: 15px;}
+	.nav-up { top: -100px; }
+	iframe {border: 0px none;}
+	.posR {position: relative;}
+	.posA {position: absolute;}
+	.w100 {width: 100% !important;}
+	.w50 {width: 50% !important;}
+	.pb-2 {padding-bottom: 2rem;}
+	.mb-1 {margin-bottom: 1rem;}
+	.mb-5 {margin-bottom: .5rem;}
+	.show {display: block !important;}
+	.bold {font-weight: bold;}
+	.fw800 {font-weight: 800;}
+	.fz13 {font-size: 1.1rem;}
+	.fz15 {font-size: 15px;}
+	.fz16 {font-size: 16px;}
+	.f_myeongjo {font-family: 'Nanum Myeongjo', serif;}
+	.f_noto {font-family: 'Noto Sans KR', sans-serif;}
+	.mb2 {margin-bottom: 2rem;}
+	.mb4 {margin-bottom: 4rem;}
+	.mt-1 {margin-top: -1rem;}
+	.mt-2 {margin-top: -2rem;}
+	.mt-4 {margin-top: -4rem;}
+	.tac {text-align: center;}
+	.p1 {padding: 1rem;}
+	.pt1 {padding-top: 1rem;}
+	.p_lr1 {padding: 0 1rem;}
+	.p_tb2 {padding: 2rem 0;}
+	.p_tb2lr1 {padding: 2rem 1rem;}
+	.contents {line-height: 1.5; font-family: 'Noto Sans KR', sans-serif !important;}
+	.contents img {width: 100%;}
+	.area_goSection {display: flex; flex-wrap: wrap; background-color: #ff740e; padding: 2rem 0;}
+	.area_goSection button {flex-basis: 50%;}
+	.section_ant {font-family: 'Nanum Myeongjo', serif; color: #000;}
+	.roll {margin-bottom: 3rem; overflow: hidden;}
+	.bg_ant {background: url(https://image.hellonature.net/plans/20191129_coffee/bg_ant.png) right top/contain no-repeat; padding-top: 18rem;}
+	.pinContainer { width: 100%; height: 100vh; overflow: hidden; }
+	.panel { height: 100%; width: 100%; position: absolute; }
+	.roll02 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_ant02.png) right top/cover no-repeat;}
+	.roll03 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_ant03.png) right top/cover no-repeat;}
+	.roll04 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_ant04.png) right top/cover no-repeat;}
+	.roll05 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_tail02.png) right top/cover no-repeat;}
+	.roll06 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_tail03.png) right top/cover no-repeat;}
+	.roll07 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_tail04.png) right top/cover no-repeat;}
+	.roll08 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_felt02.png) center top/cover no-repeat;}
+	.roll09 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_felt03.png) right top/cover no-repeat;}
+	.roll10 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_felt04.png) right top/cover no-repeat;}
+	.roll11 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_sc02.png) right top/cover no-repeat;}
+	.roll12 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_sc03.png) right top/cover no-repeat;}
+	.roll13 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_sc04.png) right top/cover no-repeat;}
+	.roll14 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_fritz02.png) right top/cover no-repeat;}
+	.roll15 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_fritz03.png) right top/cover no-repeat;}
+	.roll15_2 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_fritz03_2.png) right top/cover no-repeat;}
+	.roll16 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_our02.png) right top/cover no-repeat;}
+	.roll17 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_our03.png) right top/cover no-repeat;}
+	.roll18 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_our04.png) right top/cover no-repeat;}
+	.roll19 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_illy02.png) left top/cover no-repeat;}
+	.roll20 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_illy03.png) right top/cover no-repeat;}
+	.roll21 {background: url(https://image.hellonature.net/plans/20191129_coffee/img_illy03_2.png) right top/cover no-repeat;}
+	.info_coffeeBean {padding: 6rem 1rem;}
+	.info_coffeeBean li {border-top: 2px solid #000; padding: 1rem 0;}
+	.info_coffeeBean button {display: flex; width: 100%; text-align: left;}
+	.section_ant .info_coffeeBean button {font-family: 'Nanum Myeongjo', serif; color: #000;}
+	.tit_coffeeBean {flex-basis: 100%; flex-grow: 3; line-height: 1.5; font-size: 17px;}
+	.tit_coffeeBean dt::before {vertical-align: bottom; content: "+"; font-family: 'Noto Sans KR', sans-serif; color: #fff; background-color: #000; border-radius: 50%; display: inline-block; text-align: center; line-height: 1; margin-right: 15px; font-weight: bold; padding: 4px 6.1px; font-size: 12px; min-width: 20px; min-height: 20px; box-sizing: border-box;}
+	.tit_coffeeBean dd {margin-left: 35px;}
+	.bg_coffeeBean {flex-basis: 20%; flex-grow: 1;}
+	.open.act .tit_coffeeBean dt::before {content: "-"; padding: 3px 7.7px 5px;}
+	.chart_coffeeBean {margin-top: 1rem; display: none;  font-size: 0.8rem;}
+	.chart_coffeeBean.act {display: block;}
+	.chart_coffeeBean p {margin-left: 35px; font-size: 14px;}
+	.chart_coffeeBean a {width: 90%; background-color: #000; text-align: center; display: block; color: #fff; padding: 0.7rem 0; margin: 0 auto 1rem; font-size: 1rem;}
+	.barChart {height: 18px; color: #000!important; background-color: #6f6f6f !important; transition: all 0.4s ease-out; width: 0;}
+	.barChart.active {transition: all 0.4s ease-out; background-color: #6f6f6f !important;}
+	.barChart.active.bar1 { width: 15% !important; }
+	.barChart.active.bar2 { width: 30% !important; }
+	.barChart.active.bar3 { width: 45% !important; }
+	.barChart.active.bar4 { width: 60% !important; }
+	.barChart.active.bar5 { width: 75% !important; }
+	.group_chart {margin: 2rem auto; width: 70%; font-size: 14px;}
+	.area_chart {display: flex; margin-bottom: 0.8rem; align-items: center;}
+	.tit_chart {flex-basis: 20%;}
+	.num_chart {margin-left: 0.5rem;}
+	.section_ant .area_chart {color: #6f6f6f;}
+	.section_ant .chart_coffeeBean p {color: #6f6f6f; font-size: 15px;}
+	.section_ant .imp_color {color: #673f00 !important;}
+	.section_ant .imp_color .barChart.active {background-color: #673f00!important;}
+	.section_ant.fixed {padding-top: 100px;}
+	.section_tail {background-color: #000; color: #caa356;}
+	.section_tail .info_coffeeBean button {font-family: 'Noto Sans KR', sans-serif; color: #caa356;}
+	.section_tail .tit_coffeeBean dt {text-transform: uppercase;}
+	.section_tail .tit_coffeeBean dt::before {background-color: #caa356; color: #000;}
+	.section_tail .chart_coffeeBean a {background-color: #caa356; border: 0px none; color: #000;}
+	.section_tail .imp_color {color: #fff !important;}
+	.section_tail .imp_color .barChart.active {background-color: #fff !important;}
+	.section_tail .barChart.active {background-color: #caa356 !important;}
+	.section_tail .info_coffeeBean li {border-top: 2px solid #caa356;}
+	.section_felt {background-color: #aca499; color: #000;}
+	.section_felt .info_coffeeBean button {font-family: 'Noto Sans KR', sans-serif;}
+	.section_felt .barChart {background-color: #000 !important;}
+	.section_felt .imp_color1 {color: #004bc0 !important;}
+	.section_felt .imp_color1 .barChart.active {background-color: #004bc0!important;}
+	.section_felt .imp_color2 {color: #008146 !important;}
+	.section_felt .imp_color2 .barChart.active {background-color: #008146!important;}
+	.section_felt .imp_color3 {color: #8825c7 !important;}
+	.section_felt .imp_color3 .barChart.active {background-color: #8825c7!important;}
+	.section_seoul {background-color: #707a7a; color: #000;}
+	.section_seoul .info_coffeeBean button {font-family: 'Noto Sans KR', sans-serif;}
+	.section_seoul .barChart {background-color: #313634 !important;}
+	.section_seoul .imp_color {color: #fff !important;}
+	.section_seoul .imp_color .barChart.active {background-color: #fff !important;}
+	.section_fritz {background-color: #fffcec; color: #073861;}
+	.section_fritz .info_coffeeBean li {border-top: 2px solid #073861;}
+	.section_fritz .info_coffeeBean button {font-family: 'Noto Sans KR', sans-serif; color: #073861;}
+	.section_fritz .tit_coffeeBean dt {text-transform: uppercase;}
+	.section_fritz .tit_coffeeBean dt::before {background-color: #073861; color: #fff;}
+	.section_fritz .barChart {background-color: #073861 !important;}
+	.section_fritz .imp_color {color: #b31616 !important;}
+	.section_fritz .imp_color .barChart.active {background-color: #b31616 !important;}
+	.section_fritz .chart_coffeeBean a {background-color: #073861;color: #fff;}
+	.section_our {background-color: #787216; color: #000;}
+	.section_our .info_coffeeBean button {font-family: 'Noto Sans KR', sans-serif;}
+	.section_our .barChart {background-color: #282600 !important;}
+	.section_our .chart_coffeeBean a {background-color: #000;color: #fff;}
+	.section_our .imp_color1 {color: #ff6a00 !important;}
+	.section_our .imp_color1 .barChart.active {background-color: #ff6a00!important;}
+	.section_our .imp_color2 {color: #ff6a98 !important;}
+	.section_our .imp_color2 .barChart.active {background-color: #ff6a98!important;}
+	.section_illy {background-color: #fff; color: #000;}
+	.section_illy .info_coffeeBean button {font-family: 'Noto Sans KR', sans-serif;}
+	.section_illy .barChart {background-color: #757471 !important;}
+	.section_illy .chart_coffeeBean a {background-color: #000;color: #fff;}
+	.section_illy .imp_color {color: #e20813 !important;}
+	.section_illy .imp_color .barChart.active {background-color: #e20813!important;}
+	.video {background-color: #ff740e;}
+	.video video {vertical-align: top;}
+	.digit { opacity: 0; -webkit-transform: translateY(100px); -moz-transform: translateY(100px); -ms-transform: translateY(100px); -o-transform: translateY(100px); transform: translateY(100px); -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -ms-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
+	.digit.visible { opacity: 1; -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; }
+	.digit.digitop0to1 { opacity: 0; -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -ms-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
+	.digit.digitop0to1.visible { opacity: 1; -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; }
+	.area_wave {overflow: hidden;  height:15vh;}
+	.waves { position:relative; width: 100%; height:15vh; margin-bottom:-7px; min-height:100px; max-height:150px; }
+	.parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite; }
+	.parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 2s; }
+	.parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 3s; }
+	.parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 5s; }
+	.parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 7s; }
+	@keyframes move-forever {
+		0% {
+			transform: translate3d(-90px,0,0);
+		}
+		100% { 
+			transform: translate3d(85px,0,0);
+		}
+	}
+	@media (max-width: 768px) {
+		.area_wave {height:40px;}
+		.waves { height:40px; min-height:40px; }
+	}
+	@media only screen and (min-width:1070px){
+		.area_goHeader {width: 420px;}
+		.dim .loader {right: calc(50% - 264px); left: auto;}
+		.area_wave {height:40px;}
+		.waves { height:40px; min-height:40px; }
+	}
+</style>
+<img src="https://image.hellonature.net/plans/20191129_coffee/img_coffee01.png" alt="">
+<div class="video">
+	<video src="https://image.hellonature.net/plans/20191129_coffee/roasting.mp4" width="100%" autoplay muted loop playsinline></video>
+</div>
+<div class="area_goSection">
+	<button type="button" class="goSection01" onclick="hn_goToSection('1')"><img src="https://image.hellonature.net/plans/20191129_coffee/bt_coffee01.png" alt=""></button>
+	<button type="button" class="goSection01" onclick="hn_goToSection('2')"><img src="https://image.hellonature.net/plans/20191129_coffee/bt_coffee02.png" alt=""></button>
+	<button type="button" class="goSection01" onclick="hn_goToSection('3')"><img src="https://image.hellonature.net/plans/20191129_coffee/bt_coffee03.png" alt=""></button>
+	<button type="button" class="goSection01" onclick="hn_goToSection('4')"><img src="https://image.hellonature.net/plans/20191129_coffee/bt_coffee04.png" alt=""></button>
+	<button type="button" class="goSection01" onclick="hn_goToSection('5')"><img src="https://image.hellonature.net/plans/20191129_coffee/bt_coffee05.png" alt=""></button>
+	<button type="button" class="goSection01" onclick="hn_goToSection('6')"><img src="https://image.hellonature.net/plans/20191129_coffee/bt_coffee06.png" alt=""></button>
+	<button type="button" class="goSection01" onclick="hn_goToSection('7')"><img src="https://image.hellonature.net/plans/20191129_coffee/bt_coffee07.png" alt=""></button>
+</div>
+<div id="trigger1"></div>
+<div class="wrap_goHeader">
+	<div id="animate1" class="area_goHeader">
+		<ul>
+			<li><button type="button" class="goSection01" onclick="hn_goToSection('1')">Anthracite</button></li>
+			<li><button type="button" class="goSection01" onclick="hn_goToSection('2')">Tailorcoffee</button></li>
+			<li><button type="button" class="goSection01" onclick="hn_goToSection('4')">Seoulcoffee</button></li>
+		</ul>
+		<ul>
+			<li><button type="button" class="goSection01" onclick="hn_goToSection('3')">Felt</button></li>
+			<li><button type="button" class="goSection01" onclick="hn_goToSection('5')">Fritz</button></li>
+			<li><button type="button" class="goSection01" onclick="hn_goToSection('6')">Our</button></li>
+			<li><button type="button" class="goSection01" onclick="hn_goToSection('7')">illy</button></li>
+		</ul>
+	</div>	
+</div>
+<!-- section_ant -->
+<div id="hn_goSection1" class="section_ant">
+	<div class="p_tb2 mb2 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_ant01.png" alt="">
+	</div>
+	<section class="roll">
+		<div class="pinContainer">
+			<section class="panel roll02"></section>
+			<section class="panel roll03 rollAct1"></section>
+			<section class="panel roll04 rollAct2"></section>
+		</div>
+	</section>
+	<div class="p_lr1 digit">
+		<p class="fw800 fz13 mb2">잔에 일렁이는 문학과 예술</p>
+		<p class="fz13">네루다, 블레이크, 토마스만. 앤트러사이트는 문학 속 영감을 커피에 녹여냅니다. 생두마다의 맞춤 로스팅 온도와 시간, 열량을 찾아내 최적의 프로파일을 구현합니다.</p>
+	</div>
+	<div class="bg_ant">
+		<div class="mb2 digit">
+			<img src="https://image.hellonature.net/plans/20191129_coffee/img_ant05.png" alt="">
+		</div>
+		<div class="digit">
+			<img src="https://image.hellonature.net/plans/20191129_coffee/img_ant06.png" alt="">
+		</div>
+	</div>
+	<div class="info_coffeeBean">
+		<ul>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>앤트러사이트</dt>
+						<dd>블렌드 원두 버터팻트리오</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_ant07.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>중후한 느낌의 산미가 인상적입니다. 단단하면서도 묵직한 풍미는 스파이시한 다크 초 콜릿의 여운으로 완성됩니다.</p>
+					<div class="group_chart">
+						<div class="area_chart imp_color fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart imp_color fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26498">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>앤트러사이트</dt>
+						<dd>블렌드 원두 나쓰메소세키</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_ant08.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>싱그러운 과일과 고소한 아몬드 향미가 기분 좋은 균형을 이룹니다. 달콤한 밀크 초콜릿과 부드러운 밀크티를 닮은 기분 좋은 여운의 커피입니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26497">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>앤트러사이트</dt>
+						<dd>블렌드 원두 공기와꿈</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_ant09.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>기분 좋은 산미, 꽃과 과일의 달콤한 향미를 갖고 있습니다. 그윽한 단맛에 이어지는 그린티처럼 산뜻한 여운이 가벼운 피니시를 선사합니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26496">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>앤트러사이트</dt>
+						<dd>블렌드 원두 파블로네루다</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_ant10.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>고소한 견과류 풍미와 베리류, 헤이즐넛, 브라운 슈가의 향미 가 절묘하게 짜여진 화려한 향미, 그 뒤로 이어지는 뭉근한 단맛이 특징입니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26495">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>앤트러사이트</dt>
+						<dd>블렌드 원두 윌리엄블레이크</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_ant11.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>짙은 단맛을 베이스로 절인 대추야자와 블랙커런트의 독특한 향미에 카카오닙스의 쌉싸래한 맛이 더해져 강한 인상을 남 깁니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26494">구매하기</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- // section_ant -->
+
+<!-- section_tail -->
+<div style="background-color: #fff;">
+	<div class="posR area_wave digit digitop0to1">
+		<div>
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+			viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+			<defs>
+			<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+			</defs>
+			<g class="parallax">
+			<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,0,0,0.7" />
+			<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,0,0,0.5)" />
+			<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,0,0,0.3)" />
+			<use xlink:href="#gentle-wave" x="48" y="7" fill="#000" />
+			</g>
+			</svg>
+		</div>
+	</div>
+</div>
+<div id="hn_goSection2" class="section_tail">
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_tail01.png" alt="">
+	</div>
+	<div class="p_tb2lr1 digit fz16">
+		<p class="mb-1 tac bold">모던 톤으로 재단한 커피</p>
+		<p>테일러커피 로스팅 랩에서는 전문 로스터가 최고의 로스터기 ‘프로밧’을 활용해 원두마다의 풍미를 섬세하게 조율합니다. 모던한 감성의 스페셜티 커피를 경험하세요.</p>
+	</div>
+	<section class="roll">
+		<div class="pinContainer">
+			<section class="panel roll05"></section>
+			<section class="panel roll06 rollAct1"></section>
+			<section class="panel roll07 rollAct2"></section>
+		</div>
+	</section>
+	<div class="mb2 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_tail05.png" alt="">
+	</div>
+	<div class="mb2 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_tail06.png" alt="">
+	</div>
+	<div class="mb2 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_tail07.png" alt="">
+	</div>
+	<div class="info_coffeeBean">
+		<ul>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>tailor coffee</dt>
+						<dd>퍼플레인</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_tail08.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>잘 익은 과일의 단맛과 산미가 부드럽게 조화를 이룹니다. 오랜 여운을 선사하는 섬세한 잔향이 매력적인 커피입니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26703">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>tailor coffee</dt>
+						<dd>베이직</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_tail09.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>깊고 묵직한 바디감을 달콤한 밀크초콜릿 풍미가 완만하게 다듬어줍니다. 고소함과 단맛, 산미, 쓴맛이 균형감 있게 어우러지며 편안한 느낌를 자아냅니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26702">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>tailor coffee</dt>
+						<dd>도어즈</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_tail10.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>클래식 에스프레소를 재해석한 커피로 풍부한 바디감과 견과류의 고소한 향미를 갖고 있습니다. 쌉싸래한 맛 뒤에 따라오는 짙은 단맛이 인상적입니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26701">구매하기</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- // section_tail -->
+
+<!-- section_felt -->
+<div style="background-color: #000;">
+	<div class="posR area_wave digit digitop0to1">
+		<div>
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+			viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+			<defs>
+			<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+			</defs>
+			<g class="parallax">
+			<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(172,164,153,0.7" />
+			<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(172,164,153,0.5)" />
+			<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(172,164,153,0.3)" />
+			<use xlink:href="#gentle-wave" x="48" y="7" fill="#aca499" />
+			</g>
+			</svg>
+		</div>
+	</div>
+</div>
+<div id="hn_goSection3" class="section_felt">
+	
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_felt01.png" alt="">
+	</div>
+	<div class="p_lr1 mb2 mt-1 digit fz16">
+		<p class="mb-1 bold">오직 커피만, 가장 카페다운 카페</p>
+		<p>커피 한 잔에 절정의 풍미를 담기 위해, 펠트는 매년 커피 산지를 찾아 고품질 생두를 직접 선별합니다. 오직 커피와 커피를 즐기는 사람이 전부인 곳, 펠트입니다.</p>
+	</div>
+	<section class="roll">
+		<div class="pinContainer">
+			<section class="panel roll08"></section>
+			<section class="panel roll09 rollAct1"></section>
+			<section class="panel roll10 rollAct2"></section>
+		</div>
+	</section>
+	<div class="mb2 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_felt05.png" alt="">
+	</div>
+	<div class="mb2 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_felt06.png" alt="">
+	</div>
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_felt07.png" alt="">
+	</div>
+	<div class="mb2 digit mt-2 pb-2">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_felt07_2.png" alt="">
+	</div>
+	<img src="https://image.hellonature.net/plans/20191129_coffee/img_felt08.png" alt="">
+	<div class="info_coffeeBean">
+		<ul>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>FELT</dt>
+						<dd>클래식 블렌드 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_felt09.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>밀크초콜릿과 다크초콜릿을 넘나드는 묵직한 달콤함이 돋보입니다. 견과류를 닮은 고소한 풍미가 산미를 지그시 눌러줘 누구나 편하게 즐길 수 있습니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800 imp_color1">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26014">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>FELT</dt>
+						<dd>시즈널 블렌드 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_felt10.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>화사한 제철 과일 산미에 달콤한 캐러멜, 그윽한 다크초콜 릿 풍미가 오랜 여운을 남깁니다. 에스프레소부터 우유 배리에이션 음료까지 다양하게 어우러집니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800 imp_color2">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800 imp_color2">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26015">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>FELT</dt>
+						<dd>클래식플러스 블렌드 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_felt11.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>다크 로스팅다운 진한 풍미와 묵직한 단맛, 카카오닙스의 씁쓸한 맛, 묵직한 바디감이 균형감 있게 어우러지며 입안 을 산뜻하게 정돈합니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color3">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26016">구매하기</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- // section_felt -->
+
+<!-- section_seoul -->
+<div style="background-color: #aca499;">
+	<div class="posR area_wave digit digitop0to1">
+		<div>
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+			viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+			<defs>
+			<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+			</defs>
+			<g class="parallax">
+			<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(112,122,122,0.7" />
+			<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(112,122,122,0.5)" />
+			<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(112,122,122,0.3)" />
+			<use xlink:href="#gentle-wave" x="48" y="7" fill="#707a7a" />
+			</g>
+			</svg>
+		</div>
+	</div>
+</div>
+<div id="hn_goSection4" class="section_seoul">
+	<div class="p_tb2 mb2 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_sc01.png" alt="">
+	</div>
+	<section class="roll">
+		<div class="pinContainer">
+			<section class="panel roll11"></section>
+			<section class="panel roll12 rollAct1"></section>
+			<section class="panel roll13 rollAct2"></section>
+		</div>
+	</section>
+	<div class="p_lr1 mb2 digit fz16">
+		<p class="mb-1 bold">옛 서울의 풍경, 커피에 담다</p>
+		<p>‘1980년대 서울의 복고적 풍경을 커피에 담다.’ 서울커피는 서울의 동네 이름을 붙인 커피, 옛 정취가 묻어나는 디저트로 서울의 과거와 현재를 연결합니다.</p>
+	</div>
+	<div class="mb2 digit p_tb2">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_sc05.png" alt="">
+	</div>
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_sc06.png" alt="">
+	</div>
+	<div class="digit mb4 mt-4">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_sc07.png" alt="">
+	</div>
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_sc08.png" alt=""> 
+	</div>
+	<div class="info_coffeeBean">
+		<ul>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>서울커피</dt>
+						<dd>청림 싱글오리진 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_sc09.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>묵직한 바디감과 자두를 닮은 새콤한 산미, 고소한 견과류 향이 단단하게 어우러지며 깊고 오묘한 풍미를 자아냅니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=24918">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>서울커피</dt>
+						<dd>휘경 싱글오리진 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_sc10.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>온화한 꽃 향기 뒤로 과일의 산미와 단맛이 차례로 이어집니다. 화사한 풍미를 감싸 안는 부드러운 질감이 매력적인 커피입니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=25815">구매하기</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- // section_seoul -->
+
+<!-- section_fritz -->
+<div style="background-color: #707a7a;">
+	<div class="posR area_wave digit digitop0to1">
+		<div>
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+			viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+			<defs>
+			<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+			</defs>
+			<g class="parallax">
+			<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,252,236,0.7" />
+			<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,252,236,0.5)" />
+			<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,252,236,0.3)" />
+			<use xlink:href="#gentle-wave" x="48" y="7" fill="#fffcec" />
+			</g>
+			</svg>
+		</div>
+	</div>
+</div>
+<div id="hn_goSection5" class="section_fritz">
+	<div class="p_tb2 mb2 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_fritz01.png" alt="">
+	</div>
+	<div class="p_lr1 mb2 tac digit fz16">
+		<p class="mb-1 bold">한국 카페 문화의 교과서</p>
+		<p>‘생두 감별사’ 김병기와 숙련된 바리스타가 뜻을 모았습니다. 생두 선별부터 로스팅, 추출 방식을 섬세하게 컨트롤하며 FRITZ 고유의 커피 향미를 만들어갑니다.</p>
+	</div>
+	<section class="roll">
+		<div class="pinContainer">
+			<section class="panel roll14"></section>
+			<section class="panel roll15 rollAct1"></section>
+			<section class="panel roll15_2 rollAct2"></section>
+		</div>
+	</section>
+	<div class="mb2 digit p_tb2">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_fritz04.png" alt="">
+	</div>
+	<div class="digit mb2">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_fritz05.png" alt="">
+	</div>
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_fritz06.png" alt="">
+	</div>
+	<div class="info_coffeeBean">
+		<ul>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>Fritz</dt>
+						<dd>올드 독 블렌드 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_fritz07.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>스모키한 향과 고소한 견과류 맛이 베이스에 낮게 깔립니다. 달콤 쌉싸름한 향미가 산뜻하면서도 묵직한 바디감이 인상적입니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=25813">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>Fritz</dt>
+						<dd>시그니처 블렌드 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_fritz08.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>다크 초콜릿을 연상시키는 묵직한 달콤함이 촘촘하게 드러납니다. 균형 잡힌 단맛 뒤로 싱그러운 과즙의 여운으로 완성되는 커피입니다. </p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=25812">구매하기</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- // section_fritz -->
+
+<!-- section_our -->
+<div style="background-color: #fffcec;">
+	<div class="posR area_wave digit digitop0to1">
+		<div>
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+			viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+			<defs>
+			<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+			</defs>
+			<g class="parallax">
+			<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(120,114,22,0.7" />
+			<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(120,114,22,0.5)" />
+			<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(120,114,22,0.3)" />
+			<use xlink:href="#gentle-wave" x="48" y="7" fill="#787216" />
+			</g>
+			</svg>
+		</div>
+	</div>
+</div>
+<div id="hn_goSection6" class="section_our">
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_our01.png" alt="">
+	</div>
+	<section class="roll">
+		<div class="pinContainer">
+			<section class="panel roll16"></section>
+			<section class="panel roll17 rollAct1"></section>
+			<section class="panel roll18 rollAct2"></section>
+		</div>
+	</section>
+	<div class="p_lr1 mb2 digit fz16">
+		<p class="mb-1 bold">빵, 커피 그리고 우리</p>
+		<p>아우어의 빵이 그러하듯이, 그들만의 원칙과 기본을 반듯하게 지켜 원두를 로스팅합니다. 아우어 로스팅 전용 랩실은 언제나 균일하고 정교한 커피 맛의 산실입니다.</p>
+	</div>
+	<div class="mb2 digit p_tb2">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_our05.png" alt="">
+	</div>
+	<div class="digit mb2">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_our06.png" alt="">
+	</div>
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_our07.png" alt="">
+	</div>
+	<div class="info_coffeeBean">
+		<ul>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>아우어베이커리</dt>
+						<dd>나카메구로 블렌딩 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_our08.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>자몽, 오렌지 같은 시트러스 과일의 산미가 생생합니다. 화사한 꽃 향기가 개운한 뒷맛을 선사하는 산뜻한 커피입니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800 imp_color1">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800 imp_color1">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=24466">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>아우어베이커리</dt>
+						<dd>도산 블렌딩 원두</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_our09.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>단단한 질감의 커피입니다. 볶은 견과류, 브라운 슈가의 단맛과 다크초콜릿의 깊은 향이 완성도 높은 맛을 전합니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color2">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar5"></div>
+							<div class="num_chart">5</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=24465">구매하기</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- // section_our -->
+
+<!-- section_illy -->
+<div style="background-color: #787216;">
+	<div class="posR area_wave digit digitop0to1">
+		<div>
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+			viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+			<defs>
+			<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+			</defs>
+			<g class="parallax">
+			<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+			<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+			<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+			<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+			</g>
+			</svg>
+		</div>
+	</div>
+</div>
+<div id="hn_goSection7" class="section_illy">
+	<div class="p_tb2 mb4 digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_illy01.png" alt="">
+	</div>
+	<div class="p_lr1 mb2 digit fz16">
+		<p class="mb-1 bold">85년 전통의 에스프레소 명가</p>
+		<p>과학에서 찾은 완벽한 에스프레소. 원두 사용량, 색상, 추출 온도, 압력 등 커피 풍미를 결정짓는 60가지 요인에 절묘한 블렌딩을 더해 일리만의 에스프레소를 표현해냅니다.</p>
+	</div>
+	<section class="roll">
+		<div class="pinContainer">
+			<section class="panel roll19"></section>
+			<section class="panel roll20 rollAct1"></section>
+			<section class="panel roll21 rollAct2"></section>
+		</div>
+	</section>
+	<div class="mb2 digit pt1">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_illy04.png" alt="">
+	</div>
+	<div class="digit mb4">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_illy05.png" alt="">
+	</div>
+	<div class="digit">
+		<img src="https://image.hellonature.net/plans/20191129_coffee/img_illy06.png" alt="">
+	</div>
+	<div class="info_coffeeBean">
+		<ul>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>illy</dt>
+						<dd>다크로스트</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_illy07.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>진한 맛을 강조한 로스팅으로 강한 스모키 향을 뿜어냅니다. 약간의 신맛, 단맛을 중후한 바디감이 균형감 있게 받쳐줍니 다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar4"></div>
+							<div class="num_chart">4</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26666">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>illy</dt>
+						<dd>미디엄로스트</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_illy08.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>청사과를 닮은 부드러운 산미와 단맛을 갖췄습니다. 섬세한 바디감이 가벼운 목넘김을 선사하는 기분 좋은 커피입니다. </p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26667">구매하기</a>
+				</div>
+			</li>
+			<li>
+				<button class="open">
+					<div class="tit_coffeeBean fw800">
+						<dt>illy</dt>
+						<dd>디카페인</dd>
+					</div>
+					<div class="bg_coffeeBean"><img src="https://image.hellonature.net/plans/20191129_coffee/img_illy09.png" alt=""></div>
+				</button>
+				<div class="chart_coffeeBean">
+					<p>깊고 부드러운 풍미에 카페인 함량도 0.05%미만입니다. 고소한 맛 뒤로 은근하게 남는 달콤한 향미가 완벽한 균형감을 선사합니다.</p>
+					<div class="group_chart">
+						<div class="area_chart fw800">
+							<div class="tit_chart">바디감</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800 imp_color">
+							<div class="tit_chart">향</div>
+							<div class="barChart bar3"></div>
+							<div class="num_chart">3</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">산미</div>
+							<div class="barChart bar1"></div>
+							<div class="num_chart">1</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">단맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+						<div class="area_chart fw800">
+							<div class="tit_chart">쓴맛</div>
+							<div class="barChart bar2"></div>
+							<div class="num_chart">2</div>
+						</div>
+					</div>
+					<a href="https://item.hellonature.net/mobile_shop/goods/goods_view.html?goodsno=26747">구매하기</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- // section_illy -->
+<script type="text/javascript" src="https://image.hellonature.net/plans/20191129_coffee/ScrollMagic_js/TweenMax.min.js"></script>
+<script type="text/javascript" src="https://image.hellonature.net/plans/20191129_coffee/ScrollMagic_js/ScrollMagic.js"></script>
+<script type="text/javascript" src="https://image.hellonature.net/plans/20191129_coffee/ScrollMagic_js/animation.gsap.js"></script>
+<script>
+	var scrollPos = 0;
+	window.addEventListener('scroll', function(){
+		if ((document.body.getBoundingClientRect()).top > scrollPos) {
+			$('.area_goHeader').removeClass('nav-up').addClass('nav-down');
+		} else {
+			$('.area_goHeader').removeClass('nav-down').addClass('nav-up');
+		}
+		scrollPos = (document.body.getBoundingClientRect()).top;
+	});
+	function hn_goToSection(numSection) {
+		var offset = $("#hn_goSection" + numSection).offset().top;
+		$(window).scrollTop(offset-30);
+	}
+	$(function () {
+		var controller = new ScrollMagic.Controller();
+		$(".pinContainer").each(function() {
+			var tl = new TimelineMax();
+			var child1 = $(this).find(".rollAct1");
+			var child2 = $(this).find(".rollAct2");
+			tl.fromTo(child1, 1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone});
+			tl.fromTo(child2, 1, {x:  "-100%"}, {x: "0%", ease: Linear.easeNone});
+			var scene = new ScrollMagic.Scene({
+				triggerElement: this,
+				triggerHook: "onLeave",
+				duration: "100%"
+			})
+				.setPin(this)
+				.setTween(tl)
+				.addTo(controller);
+		});
+		var fixHeight = $(".pinContainer").height();
+		$(".roll").height(fixHeight*2);
+		var revealElements = document.getElementsByClassName("digit");
+		for (var i=0; i<revealElements.length; i++) {
+			new ScrollMagic.Scene({
+				triggerElement: revealElements[i], 
+				offset: 50,
+				triggerHook: 0.9,
+			})
+			.setClassToggle(revealElements[i], "visible")
+			.addTo(controller);
+		}
+		var scene = new ScrollMagic.Scene({
+			triggerElement: "#trigger1",
+			triggerHook: "onLeave"
+		})
+			.setClassToggle("#animate1", "fixed")
+			.addTo(controller);
+	});
+	$(".open").click(function(){
+		if ($(this).next(".chart_coffeeBean").hasClass('act')){
+			$(".open, .chart_coffeeBean").removeClass("act");
+		} else {
+			$(".open, .chart_coffeeBean").removeClass("act");
+			$(this).toggleClass("act");
+			$(".barChart").removeClass("active"); 
+			$(this).next(".chart_coffeeBean").addClass("act");
+			setTimeout(function(){
+				$(".chart_coffeeBean").find(".barChart").toggleClass("active"); 
+			}, 150);
+		}
+	});
+	var dim = document.getElementById("dim");
+	window.onload=function(){
+		setTimeout(function(){
+			document.getElementById("dim").style.display="none"
+		}, 1000);
+	};
+</script>
